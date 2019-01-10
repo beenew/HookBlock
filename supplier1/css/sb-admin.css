@@ -93,6 +93,10 @@ body.fixed-nav.sidebar-toggled #content-wrapper {
   color: #fff;
 }
 
+.navbar-nav .nav-item .nav-head {
+  color: #fff;
+  text-align: center;
+}
 .navbar-nav .nav-item.dropdown .dropdown-toggle::after {
   width: 1rem;
   text-align: center;
