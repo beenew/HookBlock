@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>recieved Orders</title>
+    <title>Add item to Inventory</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,8 +20,28 @@
     <!-- Page level plugin CSS-->
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+<!-- <script type="text/javascript">
+           var dateControler = {
+                currentDate : null
+            }
+
+             $(document).on( "change", "#txtDate",function( event, ui ) {
+                    var now = new Date();
+                    var selectedDate = new Date($(this).val());
+                    
+                    if(selectedDate < now) {
+                        $(this).val(dateControler.currentDate)
+                    } else {
+                        dateControler.currentDate = $(this).val();
+                    }
+                });   
+</script>
+ Date ki script for past or present dates if needed any where --> 
+
+
 
   </head>
 
@@ -90,54 +110,95 @@
 
     <div id="wrapper">
 
-      <!-- Sidebar -->
-      <ul class="sidebar navbar-nav">
+     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-fw fa-folder"></i>
-            <span>User Actions</span>
+        <li class="nav-item">
+          <a class="nav-head">
+         <span> &nbsp Inventory Options </span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-            <h6 class="dropdown-header">Actions</h6>
-            <!-- <a class="dropdown-item" href="login.html">Login</a> -->
-            <a class="dropdown-item" href="register.html"><i class="fas fa-fw fa-address-card"></i>Register Employee</a>
-            <a class="dropdown-item" href="forgot-password.html"> <i class="fas fa-fw fa-exchange-alt"></i>Change Password</a>
-            <div class="dropdown-divider"></div>
-            <!-- <h6 class="dropdown-header">Other Pages:</h6>
-            <a class="dropdown-item" href="404.html">404 Page</a>
-            <a class="dropdown-item" href="blank.html">Blank Page</a> -->
-          </div>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="addinventory.html">
+            <i class="fas fa-fw fa-cart-plus"></i>
+            <span>Add inventory</span></a>
+        </li>
+        
+
+                <li class="nav-item">
+          <a class="nav-link" href="raw.html">
+            <i class="fas fa-fish"></i>
+            <span>Raw Products</span></a>
+        </li> 
+
+          <li class="nav-item">
+          <a class="nav-link" href="merchandise.html">
+            <i class="fas fa-cubes"></i>
+            <span>My Products</span></a>
+        </li>         
+
          <li class="nav-item">
-          <a class="nav-link" href="checkinventory.html">
+          <a class="nav-link" href="stock.html">
             <i class="fas fa-fw fa-store"></i>
-            <span>Check Inventory</span></a>
+            <span>Stock</span></a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" href="processinventory.html">
+            <i class="fas fa-cogs" aria-hidden="true"></i>
+            <span>Process Inventory</span></a>
+        </li>
+<li class="nav-item">
+         <div style="color: white; text-align: center;">
+            <p>-------------</p>
+            
+        </div>
+      </li>
+
+        <li class="nav-item">
+          <a class="nav-head">
+         <span> &nbsp Order Mangement </span>
+          </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="recievedorder.html">
             <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Recieved Order</span></a>
         </li>
+                
                 <li class="nav-item">
-          <a class="nav-link" href="addinventory.html">
-            <i class="fas fa-fw fa-cart-plus"></i>
-            <span>Add inventory</span></a>
-        </li> 
-                <li class="nav-item">
-         
+          
            <div style="color: white; text-align: center;">
             <p>-------------</p>
             
         </div>
-        
+
         </li>  
+          
+         <li class="nav-item">
+          <a class="nav-head">
+         <span> &nbsp Account </span>
+          </a>
+        </li>
         
+        <li class="nav-item">
+          <a class="nav-link" href="register.html">
+            <i class="fas fa-fw fa-address-card"></i>
+            <span>Register Employee</span>
+          </a>
+        </li>
+
+                <li class="nav-item">
+          <a class="nav-link" href="forgot-password.html">
+            <i class="fas fa-fw fa-exchange-alt"></i>
+            <span>Account Info</span>
+          </a>
+        </li>
+
          <li class="nav-item">
           <a class="nav-link" href="#">
             <i class="fas fa-fw fa-wrench"></i>
@@ -160,44 +221,56 @@
             <li class="breadcrumb-item">
               <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Add Product to Inventory</li>
+            <li class="breadcrumb-item active">Add Product to Raw Inventory</li>
           </ol>
 
           <!-- DataTables Example -->
           <div class="container" ">
       <div class="card card-login mx-auto mt-5" style="background-color: #bef7e6";>
-        <div class="card-header">Add Product to Inventory</div>
+        <div class="card-header">Add Product to Raw Inventory</div>
         <div class="card-body">
           <form>
             <div class="form-group">
               <div class="form-label-group">
                 <input type="Text" id="lot" class="form-control" placeholder="Lot Id*" required="required" autofocus="autofocus">
-                <label for="inputEmail">Enter Lot Id*</label>
+                <label for="lot id">Enter Lot Id*</label>
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
                 <input type="text" id="fishname" class="form-control" placeholder="Fish Name*" required="required" autofocus="autofocus">
-                <label for="inputEmail">Enter Fish Name</label>
+                <label for="Name">Enter Fish Name</label>
               </div>
             </div>
             
             <div class="form-group">
               <div class="form-label-group">
                 <input type="text" id="weight" class="form-control" placeholder="Weight*" required="required" autofocus="autofocus">
-                <label for="inputEmail">Fish weight</label>
+                <label for="Weight">Fish weight</label>
               </div>
             </div>
+            
+<!--             <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" id="warehouse" class="form-control" placeholder="Warehouse No*" required="required" autofocus="autofocus">
+                <label for="Warehouse">Enter WareHouse id</label>
+              </div>
+            </div> -->
             
             <div class="form-group">
               <div class="form-label-group">
-                <input type="text" id="warehouse" class="form-control" placeholder="Warehouse No*" required="required" autofocus="autofocus">
-                <label for="inputEmail">Enter WareHouse id</label>
+                <input type="text" id="location" class="form-control" placeholder="Location*" required="required" autofocus="autofocus">
+                <label for="Catch">Catch Location</label>
               </div>
             </div>
-            
-           
-            <a class="btn btn-primary btn-block" href="index.html">Add to Stock</a>
+                        <div class="form-group">
+              <div class="form-label-group">
+                <input type="date" id="txtDate" class="form-control" placeholder="Date*" required="required" autofocus="autofocus">
+                <label for="Date">Catch Date</label>
+              </div>
+            </div>
+
+            <a class="btn btn-primary btn-block" href="index.html">Add </a>
           </form>
           <div class="text-center">
             

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>recieved Orders</title>
+    <title>Process Inventory</title>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,8 +20,28 @@
     <!-- Page level plugin CSS-->
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+<!-- <script type="text/javascript">
+           var dateControler = {
+                currentDate : null
+            }
+
+             $(document).on( "change", "#txtDate",function( event, ui ) {
+                    var now = new Date();
+                    var selectedDate = new Date($(this).val());
+                    
+                    if(selectedDate < now) {
+                        $(this).val(dateControler.currentDate)
+                    } else {
+                        dateControler.currentDate = $(this).val();
+                    }
+                });   
+</script>
+ Date ki script for past or present dates if needed any where --> 
+
+
 
   </head>
 
@@ -90,7 +110,7 @@
 
     <div id="wrapper">
 
-   <ul class="sidebar navbar-nav">
+     <ul class="sidebar navbar-nav">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -191,6 +211,7 @@
             <span>Log Out</span></a>
         </li>
       </ul>
+
       <div id="content-wrapper">
 
         <div class="container-fluid">
@@ -200,165 +221,39 @@
             <li class="breadcrumb-item">
               <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Recieved Orders</li>
+            <li class="breadcrumb-item active">Process Raw items in products</li>
           </ol>
 
           <!-- DataTables Example -->
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fas fa-table"></i>
-              Orders Stauts</div>
-            <div class="card-body">
-              <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                  <thead>
-                    <tr>
-                      <th>Customer Name</th>
-                      <th>Customer address</th>
-                      <th>Order Specification</th>
-                      <th>Order Quantity</th>
-                      <th>Fish type</th>
-                      <th>Date of order</th>
-                    </tr>
-                  </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Customer Name</th>
-                      <th>Customer address</th>
-                      <th>Order Specification</th>
-                      <th>Order Quantity</th>
-                      <th>Fish type</th>
-                      <th>Date of order</th>
-                    </tr>
-                  </tfoot>
-                  <tbody>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-                    <tr>
-                      <td>Abdul Saboor</td>
-                      <td>Shah Latif Town Karachi</td>
-                      <td>ASAP</td>
-                      <td>61 kg</td>
-                      <td>Bigeye Tuna</td>
-                      <td>2011/04/25</td>
-                    </tr>
-
-                  </tbody>
-                </table>
+          <div class="container" ">
+      <div class="card card-login mx-auto mt-5" style="background-color: #bef7e6";>
+        <div class="card-header">Process Inventory</div>
+        <div class="card-body">
+  <div class="card card-login mx-auto mt-8" style="background-color: #bef7e6";>
+        <div class="card-header">Raw Product</div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" id="lot" class="form-control" placeholder="Lot Id*" required="required" autofocus="autofocus" >
+                <label for="lot id">Enter Lot Id*</label>
               </div>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+           <a class="btn btn-primary btn-block" href="">Generate </a>
+          </form>
+</div>
+</div>
+</div>
+
+          
+           
+          <div class="text-center">
+            
           </div>
+        </div>
+      </div>
+    </div>
+
 
         </div>
         <!-- /.container-fluid -->
